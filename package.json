@@ -1,0 +1,45 @@
+{
+  "name": "react-layer",
+  "version": "1.0.0",
+  "description": "A simple react layer component",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "lint": "eslint -c .eslintrc src/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/l644738595/react-layer.git"
+  },
+  "keywords": [
+    "react",
+    "layer",
+    "react-layer",
+    "react-component"
+  ],
+  "author": "liang jian <liangjian2017@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/l644738595/react-layer/issues"
+  },
+  "homepage": "https://github.com/l644738595/react-layer#readme",
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.6.1",
+    "eslint-plugin-react": "^7.3.0",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  }
+}
