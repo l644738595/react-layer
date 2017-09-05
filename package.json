@@ -6,8 +6,12 @@
   "scripts": {
     "build": "babel src --out-dir dist",
     "lint": "eslint -c .eslintrc src/",
+    "lint:fix": "npm run lint -- --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "pre-commit": [  
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/l644738595/react-layer.git"
@@ -39,6 +43,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "eslint": "^4.6.1",
     "eslint-plugin-react": "^7.3.0",
+    "pre-commit": "^1.2.2",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   }
