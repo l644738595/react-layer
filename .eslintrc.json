@@ -24,7 +24,9 @@
     "max-len": 0,
     "no-continue": 0,
     "import/extensions": 0,
-    "import/no-unresolved": 0
+    "import/no-unresolved": 0,
+    "no-plusplus": 1,
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
   },
   "parserOptions": {
     "ecmaVersion": 6,
