@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import './index.scss';
 
 const ready = {
-  timer: {}, end: {}
+  timer: {},
+  end: {},
 };
 let index = 0;
 
 class Layer extends Component {
-  static displayName = 'Layer';
   static propTypes = {
     children: PropTypes.node,
     /**
@@ -113,13 +114,13 @@ class Layer extends Component {
 
   enter() {
     this.setState({
-      isShow: true
+      isShow: true,
     });
   }
 
   leave() {
     this.setState({
-      isShow: false
+      isShow: false,
     });
   }
 
@@ -196,14 +197,32 @@ class Layer extends Component {
       if (btnArr.length === 2) {
         buttonElement = (
           <div className="layerbtn">
-            <div><button onTouchTap={(event) => { this.handleBtnTouchTap(event, 0); }} >{btnArr[1]}</button></div>
-            <div><button onTouchTap={(event) => { this.handleBtnTouchTap(event, 1); }} >{btnArr[0]}</button></div>
+            <div>
+              <button
+                onClick={(event) => { this.handleBtnTouchTap(event, 0); }}
+              >
+                {btnArr[1]}
+              </button>
+            </div>
+            <div>
+              <button
+                onClick={(event) => { this.handleBtnTouchTap(event, 1); }}
+              >
+                {btnArr[0]}
+              </button>
+            </div>
           </div>
         );
       } else {
         buttonElement = (
           <div className="layerbtn">
-            <div><button onTouchTap={(event) => { this.handleBtnTouchTap(event, 1); }} >{btnArr[0]}</button></div>
+            <div>
+              <button
+                onClick={(event) => { this.handleBtnTouchTap(event, 1); }}
+              >
+                {btnArr[0]}
+              </button>
+            </div>
           </div>
         );
       }
@@ -234,7 +253,7 @@ class Layer extends Component {
     const klassnames = classnames({
       [className]: true,
       [`${className}-${type}`]: true,
-      [`${className}-show`]: show,
+      show,
     });
 
     const mainCls = classnames({
@@ -244,14 +263,14 @@ class Layer extends Component {
 
     const sectionCls = classnames({
       layersection: true,
-      anim: !!anim,
+      [anim]: !!anim,
     });
 
     return (
       <div
         className={klassnames}
       >
-        { shade ? <div className="layershade" onTouchTap={this.handleShadeTouchTap} /> : null }
+        { shade && <div className="layershade" onClick={this.handleShadeTouchTap} /> }
         <div className={mainCls}>
           <div className={sectionCls}>
             {headerElement}

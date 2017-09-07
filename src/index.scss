@@ -1,0 +1,158 @@
+/* 弹出动画 */
+@keyframes scale { /* 默认 */
+	0% {opacity: 0; transform: scale(.5)}
+	100% {opacity: 1; transform: scale(1)}
+}
+
+
+@keyframes up{
+  0%{opacity: 0; transform: translateY(800px)}
+  100%{opacity: 1; transform: translateY(0)}
+}
+
+@keyframes loading{
+    0%,80%,100%{transform:scale(0); transform:scale(0)}
+    40%{transform:scale(1); transform:scale(1)}
+}
+
+.scale{ animation-name: scale; }
+.up{ animation-name: up; }
+
+.layer{
+
+	position: relative;
+	z-index: 999;
+	display: none;
+
+	.layershade, .layermain{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.layershade{
+		background-color: rgba(0, 0, 0, 0.4);
+		pointer-events:auto;
+	}
+	.layermain{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		pointer-events: none;
+		&.msg{
+			.layersection{
+				width: auto;
+				max-width: 580px;
+				margin: 0 auto;
+				background-color: rgba(0,0,0,.8);
+				color: #fff;
+				.layercontent{
+					color: #fff;
+					padding: 12px 20px;
+					min-height: auto;
+				}
+			}
+		}
+
+		&.footer{
+			align-items: flex-end;
+		}
+	}
+	.layersection{
+		position:relative;
+		font-size:24px;
+		border-radius: 10px;
+		pointer-events:auto;
+		animation-duration: .2s;
+
+		.layerheader{
+			padding-top: 30px;
+			h3{
+				padding: 10px 0;
+				text-align: center;
+				font-size: 32px;
+				line-height: 48px;
+			}
+		}
+		.layerfooter{
+			padding: 20px;
+			border-top: 1px solid #e5e5e5;
+		}
+		.layercontent{
+			color: #999;
+			font-size: 24px;
+			line-height: 36px;
+			text-align: center;
+			padding: 20px;
+			&.primary{
+				padding: 0;
+			}
+		}
+		.layerbtn{
+			display: flex;
+			justify-content: space-around;
+			& > div{
+				width: 220px;
+			}
+		}
+
+	}
+	&.show{
+		display: block;
+	}
+
+
+
+	&.layer-0{
+		.layersection{
+			background-color: #fff;
+			width: 580px;
+		}
+	}
+
+	&.layer-1{
+		.layersection{
+			border: none;
+			border-radius: 0;
+			.layercontent{
+				text-align: left;
+				padding: 0;
+			}
+		}
+
+	}
+
+	&.layer-2{
+		.layersection{
+			border: none;
+			border-radius: 0;
+			.layercontent{
+				text-align: center;
+				padding: 0;
+				& > p{
+					color: #fff;
+				}
+				& > i{
+					width: 25px;
+					height: 25px;
+					margin-left: 8px;
+					display: inline-block;
+					background-color: #fff;
+					border-radius: 100%;
+					animation: loading 1.4s infinite ease-in-out;
+					animation-fill-mode: both;
+					&:first-child{
+						margin-left:0;
+						animation-delay: -.32s;
+					}
+					&.layerload{
+						animation-delay: -.16s;
+					}
+
+				}
+			}
+		}
+	}
+}
+
