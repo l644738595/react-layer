@@ -1,10 +1,24 @@
 {
-  "presets": [
-    "es2015",
-    "react",
-    "stage-2"
-  ],
-  "plugins": [
-    "transform-decorators-legacy"
-  ]
+  "presets": ["react", "airbnb", "stage-2"],
+  "env": {
+    "production": {
+      "plugins": []
+    },
+    "development": {
+      "plugins": [
+        [
+          "react-transform",
+          {
+            "transforms": [
+              {
+                "transform": "react-transform-hmr",
+                "imports": ["react"],
+                "locals": ["module"]
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  }
 }

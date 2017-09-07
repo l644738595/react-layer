@@ -1,0 +1,28 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "no-console": 1,
+    "react/prefer-stateless-function": 0,
+    "arrow-body-style": 0,
+    "import/imports-first": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/prefer-default-export": 0,
+    "linebreak-style": 0,
+    "no-plusplus": 1,
+    "jsx-a11y/no-static-element-interactions": 1,
+    "jsx-a11y/href-no-hash": 0
+  }
+}
