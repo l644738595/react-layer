@@ -4,5 +4,5 @@ import { ReactLayer } from '../src';
 
 render(
   <ReactLayer />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

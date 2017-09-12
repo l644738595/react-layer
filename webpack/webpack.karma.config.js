@@ -5,7 +5,7 @@ module.exports = function (baseConfig) {
   return extend({}, baseConfig, {
     cache: undefined,
 
-    debug: undefined,
+    //debug: undefined,
 
     watch: undefined,
 
@@ -14,8 +14,10 @@ module.exports = function (baseConfig) {
     entry: {},
 
     resolve: {
-      extensions: ["", ".webpack.js", ".web.js", ".js", ".jsx", ".css", ".scss"],
-      modulesDirectories: ["node_modules", "src"]
+      modules: [
+        'node_modules',
+        'src',
+      ],
     },
 
     output: {},

@@ -1,5 +1,6 @@
 const merge = require('lodash/merge');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = function (baseConfig) {
   return merge({}, baseConfig, {
@@ -15,8 +16,12 @@ module.exports = function (baseConfig) {
         path.normalize(__dirname + '/../src')
       ]
     },
-    plugins: []
-      .concat(require('./helpers/plugins/dedupe'))
+    plugins: [
+      new webpack.LoaderOptionsPlugin({
+        minimize: true
+      })
+    ]
+      //.concat(require('./helpers/plugins/dedupe'))
       .concat(require('./helpers/plugins/css'))
       .concat(require('./helpers/plugins/uglify'))
   });

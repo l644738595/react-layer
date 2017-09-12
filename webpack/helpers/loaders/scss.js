@@ -4,11 +4,18 @@ const NODE_ENV = process.env.NODE_ENV;
 if (NODE_ENV === 'production') {
   return module.exports = {
     test: /\.(scss|sass)$/,
-    loader: ExtractTextPlugin.extract('style', ['css', 'postcss', 'sass'])
-  }
+    use: ExtractTextPlugin.extract({
+      fallbackLoader: 'style-loader',
+      use: [
+        'css-loader',
+        'postcss-loader',
+        'sass-loader',
+      ],
+    }),
+  };
 }
 
 module.exports = {
   test: /\.(scss|sass)$/,
-  loaders: ['style', 'css', 'postcss', 'sass']
+  use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
 };

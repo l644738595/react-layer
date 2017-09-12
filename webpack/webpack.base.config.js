@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
   cache: false,
 
-  debug: false,
+  //debug: false,
 
   watch: false,
 
@@ -13,9 +13,14 @@ module.exports = {
   target: 'web',
 
   resolve: {
-    root: path.normalize(__dirname + '/../src'),
-    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.css', '.scss', '.saas'],
-    modulesDirectories: ['node_modules', 'src']
+    //root: path.normalize(__dirname + '/../src'),
+    modules: [
+      path.normalize(__dirname + '/../src'),
+      'node_modules',
+      'src',
+    ],
+    extensions: ['.webpack.js', '.web.js', '.js', '.jsx', '.css', '.scss', '.saas'],
+    enforceExtension: false,
   },
 
   entry: {},
@@ -29,12 +34,17 @@ module.exports = {
   },
 
   plugins: [
+    /*new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: require('./helpers/postcss')
+      },
+    }),*/
     require('./helpers/plugins/vars'),
-    require('./helpers/plugins/moment')
+    require('./helpers/plugins/moment'),
   ],
 
   module: {
-    loaders: [
+    rules: [
       require('./helpers/loaders/css'),
       require('./helpers/loaders/scss'),
       require('./helpers/loaders/babel')
@@ -42,5 +52,5 @@ module.exports = {
     ].concat(require('./helpers/loaders/fonts'))
   },
 
-  postcss: require('./helpers/postcss')
+  //postcss: require('./helpers/postcss')
 };
