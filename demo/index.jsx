@@ -1,8 +1,8 @@
 import { render } from 'react-dom';
 import React from 'react';
-import { ReactLayer } from '../src';
+import Node from './demo';
 
 render(
-  <ReactLayer />,
+  <Node />,
   document.getElementById('app'),
 );

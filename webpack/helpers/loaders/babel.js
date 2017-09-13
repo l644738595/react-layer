@@ -7,6 +7,7 @@ module.exports = {
       loader: 'eslint-loader',
       options: {
         quiet: true,
+        fix: true,
       },
     },
   ]

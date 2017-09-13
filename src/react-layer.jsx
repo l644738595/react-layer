@@ -81,7 +81,7 @@ class Layer extends Component {
     anim: 'scale',
     title: null,
     time: 0,
-    skin: 'msg',
+    skin: null,
     btn: [],
     shade: true,
     shadeClose: true,
@@ -193,12 +193,13 @@ class Layer extends Component {
       btnArr = btn || [];
     }
 
-    if (btn || btnArr.length) {
+    if (btn && btnArr.length) {
       if (btnArr.length === 2) {
         buttonElement = (
           <div className="layerbtn">
             <div>
               <button
+                className="no"
                 onClick={(event) => { this.handleBtnTouchTap(event, 0); }}
               >
                 {btnArr[1]}
@@ -206,6 +207,7 @@ class Layer extends Component {
             </div>
             <div>
               <button
+                className="yes"
                 onClick={(event) => { this.handleBtnTouchTap(event, 1); }}
               >
                 {btnArr[0]}
@@ -218,6 +220,7 @@ class Layer extends Component {
           <div className="layerbtn">
             <div>
               <button
+                className="yes"
                 onClick={(event) => { this.handleBtnTouchTap(event, 1); }}
               >
                 {btnArr[0]}
